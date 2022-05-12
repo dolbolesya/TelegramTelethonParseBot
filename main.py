@@ -11,12 +11,7 @@ client.start()
 # прослушка смс
 @client.on(events.NewMessage(chats=[test_chat, alert_chat]))
 async def handler(event):
-    status = {
-        "danger": "Повітряна тривога",
-        "safe": "Відбій тривоги",
-        "attention": "Зверніть увагу, тривога ще триває у"
-    }
-
+    
     if event.sender_id == alert_chat or event.sender_id == test_chat:
         msg = event.message.message
         arr = event.message.message.split(' ')
